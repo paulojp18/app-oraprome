@@ -3,14 +3,14 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
 
-const Intencoes = () => {
+const Esenha = () => {
   
   return (
     <View>
-      <Text>Intenções</Text>
+      <Text>Esqueci senha</Text>
     </View>
   )}
 
-export default Intencoes
+export default Esenha
 
 const styles = StyleSheet.create({})

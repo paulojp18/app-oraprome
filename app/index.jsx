@@ -29,7 +29,7 @@ export default function App() {
           secureTextEntry
         />
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => router.navigate('/esenha')}>
           <Text style={styles.forgot}>Esqueceu a senha?</Text>
         </TouchableOpacity>
 
