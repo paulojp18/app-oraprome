@@ -4,7 +4,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground } 
 export default function App() {
   return (
     <ImageBackground
-      source={require('./assets/orando.png')} // Usaremos essa imagem como fundo depois
+      source={require('../assets/orando.png')} // Usaremos essa imagem como fundo depois
       style={styles.background}
       resizeMode="cover"
     >
