@@ -33,7 +33,7 @@ export default function App() {
           <Text style={styles.forgot}>Esqueceu a senha?</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => router.navigate('/intencoes')}>
           <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
 
