@@ -1,7 +1,10 @@
 import React from 'react';
+import { useRouter } from 'expo-router';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
 
-export default function App() {
+export default function App() {  
+  const router = useRouter();
+
   return (
     <ImageBackground
       source={require('../assets/orando.png')} // Usaremos essa imagem como fundo depois
@@ -34,7 +37,7 @@ export default function App() {
           <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => router.navigate('/cadastro')}>
           <Text style={styles.buttonText}>Criar conta</Text>
         </TouchableOpacity>
       </View>
