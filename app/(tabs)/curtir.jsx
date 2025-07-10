@@ -1,8 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
-  import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Tabs } from 'expo-router';
+
 const Cadastro = () => {
   const router = useRouter();
 
