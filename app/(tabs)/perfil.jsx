@@ -10,7 +10,7 @@ const PerfilScreen = () => {
     <ScrollView contentContainerStyle={styles.container}>
       {/* Botão Voltar */}
       <TouchableOpacity style={styles.backButton} onPress={() => router.navigate('intencoes')}>
-        <Ionicons name="arrow-back" size={24} color="black" />
+        <Ionicons name="arrow-back" size={30} color="black" />
       </TouchableOpacity>
 
       {/* Título */}
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 80,
+    top: 70,
     left: 20,
   },
   title: {

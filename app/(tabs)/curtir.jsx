@@ -1,79 +1,115 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, BotaoPerfil } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Feather, Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 
-const Cadastro = () => {
+
+
+export default function App() {
   const router = useRouter();
+
+  const intencoes = [
+    {
+      id: 1,
+      titulo: 'Pela Saúde',
+      descricao: 'Orem pela saúde do meu filho que está passando por essa situação tão difícil, o nome dele é Gabriel.',
+    },
+    {
+      id: 2,
+      titulo: 'Pelo Emprego',
+      descricao: 'Fernanda92:Rezar pelo meu irmão que está em busca de trabalho.',
+    }
+  ];
+ 
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
-      <View style={styles.form}>
-        <Text style={styles.title}>Cadastro</Text>
+      {/* Cabeçalho */}
+      
+            {/* Título */}
+            <Text style={styles.title}>Orando</Text>
+      <View style={styles.header}>
 
-        <Text style={styles.label}>Nome Completo</Text>
-        <TextInput style={styles.input} placeholder="Inserir nome e sobrenome" placeholderTextColor="#555" />
-
-        <Text style={styles.label}>Usuário</Text>
-        <TextInput style={styles.input} placeholder="Inserir nome de usuario" placeholderTextColor="#555" />
-
-        <Text style={styles.label}>E-MAIL</Text>
-        <TextInput style={styles.input} placeholder="Inserir E-mail" placeholderTextColor="#555" />
-
-        <Text style={styles.label}>Data de Nascimento</Text>
-        <TextInput style={styles.input} placeholder="Inserir Data" placeholderTextColor="#555" />
-
-        <Text style={styles.label}>SENHA</Text>
-        <TextInput style={styles.input} placeholder="Inserir senha" placeholderTextColor="#555" secureTextEntry />
-
-        <TouchableOpacity style={styles.button} onPress={() => router.navigate('/')}>
-          <Text style={styles.buttonText}>Entrar</Text>
-        </TouchableOpacity>
+        
+             <View style={styles.profileIcon}>
+                <Ionicons name="heart" size={80} color="#ff0000" />
+             </View>
+       
       </View>
+      
+
+      {/* Lista de intenções */}
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        {intencoes.map((item) => (
+          <View key={item.id} style={styles.card}>
+            <Text style={styles.cardTitle}>{item.titulo}</Text>
+            <Text style={styles.cardText}>{item.descricao}</Text>
+            {/*} <TouchableOpacity style={styles.button} onPress={() => router.navigate('curtir')}>
+              <Text style={styles.buttonText}>Orando</Text>
+            </TouchableOpacity> */} 
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
-};
-
-export default Cadastro;
+}
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#007D99',
-    justifyContent: 'center',
+   container: {
+    padding: 20,
+    paddingTop: 60,
+    backgroundColor: '#fff',
+    flexGrow: 1,
     alignItems: 'center',
   },
-  form: {
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    padding: 20,
-    width: '80%',
-  },
-  title: {
-    fontSize: 26,
-    fontWeight: '300',
-    textAlign: 'center',
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 20,
   },
-  label: {
-    fontSize: 12,
-    marginTop: 10,
-    color: '#555',
+    backButton: {
+    position: 'absolute',
+    top: 70,
+    left: 20,
   },
-  input: {
-    backgroundColor: '#e1f5fe',
-    borderRadius: 5,
-    padding: 10,
-    marginTop: 5,
+  
+  title: {
+    fontSize: 28,
+    fontWeight: '600',
+  },
+  scrollContainer: {
+    paddingBottom: 20,
+  },
+  card: {
+    backgroundColor: '#00526D',
+    borderRadius: 30,
+    padding: 20,
+    marginBottom: 20,
+  },
+  cardTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 8,
+    color: '#ffffff',
+  },
+  cardText: {
+    fontSize: 18,
+    marginBottom: 12,
+    color: '#ffffff',
   },
   button: {
-    backgroundColor: '#004D61',
-    padding: 12,
-    borderRadius: 6,
-    marginTop: 20,
-    alignItems: 'center',
+    alignSelf: 'center',
   },
   buttonText: {
-    color: '#fff',
-    fontSize: 16,
+    color: '#00526D',
+    fontSize: 18,
+    fontWeight: '600',
+  },
+  profileIcon: {
+    position: 'relative',
+    marginBottom: 30,
   },
 });

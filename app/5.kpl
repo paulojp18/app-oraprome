@@ -16,7 +16,7 @@ export default function App() {
     {
       id: 2,
       titulo: 'Pelo Emprego',
-      descricao: 'Fernanda92:Rezar pelo meu irmão que está em busca de trabalho.',
+      descricao: 'Fernanda92:\nRezar pelo meu irmão que está em busca de trabalho.',
     }
   ];
  
